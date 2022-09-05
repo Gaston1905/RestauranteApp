@@ -17,6 +17,7 @@ export class MenuComponent implements OnInit {
   faSquareXmark = faSquareXmark;
 
 
+
   constructor (
     public menuSVC : MenuService,
     public route : Router) {}
@@ -34,7 +35,7 @@ export class MenuComponent implements OnInit {
         error: (error: HttpErrorResponse) => {
           console.log(error);
         },
-      });
+      })
     }
 
     this.menu = JSON.parse(localStorage.getItem('menu')!)

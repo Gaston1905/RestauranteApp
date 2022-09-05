@@ -100,7 +100,7 @@ export class LoginComponent implements OnInit {
           })
         }),
       )
-      .subscribe((data) => {
+      .subscribe((_data) => {
         this.route.navigate(['/home']);
       });
 

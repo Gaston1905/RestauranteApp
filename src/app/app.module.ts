@@ -30,7 +30,6 @@ import { DetailMenuComponent } from './components/detail-menu/detail-menu.compon
     LoginComponent,
     MenuComponent,
     DetailMenuComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -41,7 +40,6 @@ import { DetailMenuComponent } from './components/detail-menu/detail-menu.compon
     SweetAlert2Module,
     FontAwesomeModule,
     BrowserAnimationsModule,
-
   ],
   providers: [ MenuService,
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },

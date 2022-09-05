@@ -10,7 +10,7 @@ import { MenuComponent } from './components/menu/menu.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
-  { path: 'login',  component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'home', canActivate:[AuthGuardService], component: HomeComponent },
   { path: 'menu', canActivate:[AuthGuardService], component: MenuComponent },
   { path: 'detailMenu', canActivate:[AuthGuardService], component: DetailMenuComponent},
