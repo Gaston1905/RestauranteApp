@@ -27,13 +27,7 @@ export class AuthService {
       map((data) => {
         localStorage.setItem('currentUser', JSON.stringify(data));
         this.currentUserSubject.next(data);
-
-
-
         this.parcero = true;
-
-
-
         return data;
       })
     )
@@ -42,11 +36,13 @@ export class AuthService {
 
 
   get UserAuth() {
+
     return this.currentUserSubject.value;
   }
 
   loggedIn() {
-    return this.parcero;
+    this.parcero
+    return localStorage.getItem('currentUser');
   }
   logoutUser() {
     this.parcero = false;

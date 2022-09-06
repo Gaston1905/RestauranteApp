@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { MenuService } from 'src/app/services/menu.service';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { debounceTime, distinctUntilChanged, fromEvent, map } from 'rxjs';
@@ -15,7 +16,8 @@ export class SearchComponent implements OnInit {
   menu:any;
   defaultImage: string = "https://spoonacular.com/menuItemImages/pilaf.png"
 
-  constructor( public menuSVC: MenuService) { }
+  constructor(
+    public menuSVC: MenuService, public route: Router) { }
 
 
 
@@ -37,6 +39,15 @@ export class SearchComponent implements OnInit {
     this.menuSVC.getItemsByType(menu).subscribe(
       (data => this.menu = data.results)
     )}
+  }
+
+  onItemDetail(id: number){
+    this.menuSVC.getItemDetail(id).subscribe(
+      (data: any) =>{
+        console.log(data)
+        this.route.navigate(['/detailMenu', { menu: JSON.stringify(data)}])
+      }
+    )
   }
 
   onAddMenu(item: object){
