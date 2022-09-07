@@ -13,12 +13,12 @@ export class MenuService {
 
 
   constructor(private http: HttpClient) {
-    this.URI = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=34df9126854e49b29ce52ae07624a5b9';
+    this.URI = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=34df9126854e49b29ce52ae07624a5b9&number=4';
   }
 
 
   getMenu(): Observable<any> {
-    return this.http.get<any>(this.URI + '');
+    return this.http.get<any>(this.URI + '')
   }
 
   getItemDetail(id : number){

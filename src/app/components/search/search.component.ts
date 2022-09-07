@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { MenuService } from 'src/app/services/menu.service';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { debounceTime, distinctUntilChanged, fromEvent, map } from 'rxjs';
+import { CartService } from 'src/app/services/cart.service';
 
 
 
@@ -17,7 +18,7 @@ export class SearchComponent implements OnInit {
   defaultImage: string = "https://spoonacular.com/menuItemImages/pilaf.png"
 
   constructor(
-    public menuSVC: MenuService, public route: Router) { }
+    public menuSVC: MenuService, public route: Router, public cartService : CartService) { }
 
 
 
@@ -50,11 +51,6 @@ export class SearchComponent implements OnInit {
     )
   }
 
-  onAddMenu(item: object){
-    let menu = JSON.parse(sessionStorage.getItem('menu')!)
-    menu.push(item)
-    sessionStorage.setItem('menu',JSON.stringify(menu))
-    console.log(menu)
-  }
+
 
 }

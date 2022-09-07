@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/services/menu.service';
 import { faSquarePlus } from '@fortawesome/free-solid-svg-icons';
 import { faSquareXmark } from '@fortawesome/free-solid-svg-icons';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-menu',
@@ -15,12 +16,14 @@ export class MenuComponent implements OnInit {
   menu: any = JSON.parse(localStorage.getItem('menu')!) || {};
   faSquarePlus = faSquarePlus;
   faSquareXmark = faSquareXmark;
+  product : any = []
 
 
 
   constructor (
     public menuSVC : MenuService,
-    public route : Router) {}
+    public route : Router,
+    private cartService : CartService) {}
 
   ngOnInit() {
 
@@ -53,12 +56,12 @@ export class MenuComponent implements OnInit {
     )
   }
 
-  onAddMenu(item: object){
-    let menu = JSON.parse(localStorage.getItem('menu')!)
-    menu.push(item)
-    localStorage.setItem('menu',JSON.stringify(menu))
+  addToCart(menu: any[]) {
+    this.cartService.addToCart(menu);
     console.log(menu)
   }
+
+
 
   onDelete(id :number){
     const menu = this.menu.filter((menu: { id: number; }) => menu.id != id);

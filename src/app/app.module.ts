@@ -19,6 +19,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { DetailMenuComponent } from './components/detail-menu/detail-menu.component';
+import { CartComponent } from './components/cart/cart.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { DetailMenuComponent } from './components/detail-menu/detail-menu.compon
     LoginComponent,
     MenuComponent,
     DetailMenuComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,10 @@
 
 <app-search></app-search>
 
+<a routerLink="/cart" class="button fancy-button">
+  <i class="material-icons">shopping_cart</i>Checkout
+</a>
+
 <div class="container pe-5">
    <ul class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
       <li class="col-sm" *ngFor="let menu of menu">
@@ -12,7 +16,7 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button (click)="onItemDetail(menu.id)" type="button" class="btn btn-sm btn-outline-dark">Detalle</button>
-                  <button id="add" (click)="onAddMenu(menu)"  type="button" class="btn btn-sm btn-outline-success">Add to Menu</button>
+                  <button id="add" (click)="addToCart(menu)"  type="button" class="btn btn-sm btn-outline-success">Add to Menu</button>
                 </div>
                 <small class="text-muted">9 mins</small>
               </div>
