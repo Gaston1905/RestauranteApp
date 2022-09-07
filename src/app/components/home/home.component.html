@@ -10,7 +10,11 @@
     <div class=" text-end">
       <div class="d-flex" *ngIf="isloged()">
         <div class="me-2 pe-2">
-
+          <div>
+            <a routerLink="/cart" class="button">
+              <button class="btn rounded-3 shadow-lg border btn-success"><i class="material-icons">restaurant</i>Mi menu</button>
+            </a>
+          </div>
         </div>
         <button type="button" class="btn btn-outline-primary btn-danger text-light tooltips" (click)="logoutUser()" (click)="handleClear()">Logout</button>
       </div>

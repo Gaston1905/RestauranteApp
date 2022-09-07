@@ -9,6 +9,11 @@
 
 
     <div class="col-md-3 text-end">
+      <div *ngIf="isloged()">
+      <a routerLink="/cart" class="button fancy-button">
+        <i class="material-icons">shopping_cart</i>Checkout
+      </a>
+      </div>
       <div *ngIf="!isloged()">
         <button type="button" class="btn btn-outline-primary btn-light me-2 tooltips" data-bs-toggle="modal" data-bs-target="#myModal" data-placement="top" data-toggle="tooltip" data-original-title="Edit" [disabled]="isLoading">Login</button>
       </div>

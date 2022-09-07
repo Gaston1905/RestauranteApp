@@ -1,7 +1,8 @@
+import { MenuService } from 'src/app/services/menu.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
+import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
+import { faLeftLong } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-cart',
@@ -10,14 +11,31 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartComponent implements OnInit {
 
+  faLeftLong = faLeftLong;
 
   constructor(
-    private route: ActivatedRoute,
-    private cartService: CartService ) {}
+    private route: Router,
+    private cartService: CartService,
+    private menuSVC: MenuService,
+     ) {}
 
     menu = this.cartService.getItems();
 
   ngOnInit(): void {}
+
+  onItemDetail(id: number){
+    this.menuSVC.getItemDetail(id).subscribe(
+      (data: any) =>{
+        console.log(data)
+        this.route.navigate(['/detailMenu', { menu: JSON.stringify(data)}])
+      }
+    )
+  }
+
+  onDelete(id :number){
+    const menu = this.menu.filter((menu: { id: number; }) => menu.id != id);
+    localStorage.setItem('menu',JSON.stringify(menu))
+  }
 
 
 

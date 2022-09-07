@@ -1,17 +1,32 @@
-<h3>Cart</h3>
+<div class="container my-5">
+  <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
 
-<div class="cart-item" *ngFor="let menu of menu">
-  <div class="col-sm">
-          <div class="card shadow-sm" >
-            <img class="img-thumbnail" src="{{menu.image}}">
-            <div class="card-body">
-              <p class="card-text">{{menu.title}}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
+    <div>
+      <a href="home"><button class="rounded-3 shadow-lg border"><fa-icon [icon]="faLeftLong" class="fa-xl"></fa-icon>Volver</button></a>
+    </div>
+
+    <h1 class="display-4 fw-bold lh-1 mt-3">Mi menu</h1>
+
+    <div class="container pe-5">
+      <ul class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
+        <li class="cart-item" *ngFor="let menu of menu">
+          <div class="col-sm">
+                  <div class="card shadow-sm" >
+                    <img class="img-thumbnail" src="{{menu.image}}">
+                    <div class="card-body">
+                      <p class="card-text">{{menu.title}}</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button (click)="onItemDetail(menu.id)" type="button" class="btn btn-sm btn-outline-dark">Detalle</button>
+                          <button (click)="onDelete(menu)" type="button" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                          </div>
+                        <small class="text-muted">9 mins</small>
+                    </div>
                 </div>
-                <small class="text-muted">9 mins</small>
               </div>
-          </div>
-        </div>
-      </div>
+            </div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

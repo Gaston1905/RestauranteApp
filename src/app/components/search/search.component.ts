@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { MenuService } from 'src/app/services/menu.service';
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { debounceTime, distinctUntilChanged, fromEvent, map } from 'rxjs';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { debounceTime, distinctUntilChanged, fromEvent, map, switchMap, UnsubscriptionError } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
 
 
@@ -28,9 +28,11 @@ export class SearchComponent implements OnInit {
       const keyup = fromEvent(menu, 'keyup');
       keyup.pipe(
         map((e: any)=> e.currentTarget.value),
-       debounceTime(500)
+       debounceTime(500),
+
       ).subscribe(
-        e => this.onSearch(e));
+        e => this.onSearch(e))
+
     }
 
   }
@@ -51,6 +53,9 @@ export class SearchComponent implements OnInit {
     )
   }
 
-
+  addToCart(menu: any[]) {
+    this.cartService.addToCart(menu);
+    console.log(menu)
+  }
 
 }
