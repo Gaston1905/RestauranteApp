@@ -1,3 +1,4 @@
+import { ChoiceMenuComponent } from './components/choice-menu/choice-menu.component';
 import { CartComponent } from './components/cart/cart.component';
 import { SearchComponent } from './components/search/search.component';
 import { DetailMenuComponent } from './components/detail-menu/detail-menu.component';
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'menu', canActivate:[AuthGuardService], component: MenuComponent },
   { path: 'detailMenu', canActivate:[AuthGuardService], component: DetailMenuComponent},
   { path: 'search', canActivate:[AuthGuardService], component: SearchComponent },
-  { path: 'cart', canActivate:[AuthGuardService], component: CartComponent}
+  { path: 'cart', canActivate:[AuthGuardService], component: CartComponent},
+  { path: 'choiceMenu', canActivate:[AuthGuardService], component:ChoiceMenuComponent },
 ];
 
 @NgModule({

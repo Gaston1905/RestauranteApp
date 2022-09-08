@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { ChoiceMenuComponent } from './choice-menu.component';
+
+describe('ChoiceMenuComponent', () => {
+  let component: ChoiceMenuComponent;
+  let fixture: ComponentFixture<ChoiceMenuComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ ChoiceMenuComponent ]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(ChoiceMenuComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

@@ -1,32 +1,27 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService {
 
-
-  URI: string = '';
-
-
-
-  constructor(private http: HttpClient) {
-    this.URI = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=34df9126854e49b29ce52ae07624a5b9&number=4';
-  }
+  searchURL = environment.searchURL
+  detailURL = environment.detailURL
+  apiKey = environment.apiKey
 
 
-  getMenu(): Observable<any> {
-    return this.http.get<any>(this.URI + '')
-  }
+
+  constructor(private http: HttpClient) { }
 
   getItemDetail(id : number){
-    return this.http.get<any>('https://api.spoonacular.com/recipes/'+ id +'/information?apiKey=34df9126854e49b29ce52ae07624a5b9')
+    return this.http.get<any>(`${this.detailURL}/${id}/information?${this.apiKey}`)
   }
 
   getItemsByType(queryMenu : String){
-    return this.http.get<any>('https://api.spoonacular.com/recipes/complexSearch?apiKey=34df9126854e49b29ce52ae07624a5b9&query='+ queryMenu)
+    return this.http.get<any>(`${this.searchURL}${this.apiKey}&query=${queryMenu}`)
+
   }
 
 

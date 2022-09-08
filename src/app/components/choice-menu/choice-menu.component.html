@@ -1,0 +1,72 @@
+<div class="container my-5">
+  <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+
+
+    <h1 class="display-4 fw-bold lh-1 mt-3">Mi menu</h1>
+
+    <div class="container pe-5">
+      <ul class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
+        <li class="cart-item" *ngFor="let menu of menu">
+          <div class="col-sm">
+                  <div class="card shadow-sm" >
+                    <img class="img-thumbnail" src="{{menu.image}}">
+                    <div class="card-body">
+                      <p class="card-text">{{menu.title}}</p>
+                      <p class="card-text">{{menu.healthScore}}</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button (click)="onItemDetail(menu.id)" type="button" class="btn btn-sm btn-outline-dark">Detalle</button>
+                          <button (click)="onDelete(menu.id)" type="button" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                          </div>
+                          <div *ngFor="let detailMenu of menu">
+                        <small class="text-muted">{{detailMenu.readyInMinutes}}</small>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </li>
+      </ul>
+    </div>
+    <span>
+      <br>
+    </span>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center" *ngFor="let menu of menu">
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3 text-black">
+            <h4 class="my-0 fw-normal">Healt Score</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">{{menu.id.healthScore}}<small class="text-muted fw-light"> puntos</small></h1>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Tiempo de preparacion</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">{{menu.id.readyInMinutes}}<small class="text-muted fw-light"> minutes</small></h1>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3 text-black ">
+            <h4 class="my-0 fw-normal">Precio</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">${{menu.id.pricePerServing}}<small class="text-muted fw-light">/Unit</small></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+

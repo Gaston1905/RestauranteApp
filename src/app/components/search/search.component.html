@@ -18,7 +18,7 @@
                       <button (click)="onItemDetail(menu.id)" type="button" class="btn btn-sm btn-outline-dark">Detalle</button>
                       <button id="add" (click)="addToCart(menu)"  type="button" class="btn btn-sm btn-outline-success">Add to Menu</button>
                     </div>
-                    <small class="text-muted">9 mins</small>
+                    <small class="text-muted">{{menu.readyInMinutes}}</small>
                   </div>
                 </div>
             </div>

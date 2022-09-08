@@ -20,6 +20,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { DetailMenuComponent } from './components/detail-menu/detail-menu.component';
 import { CartComponent } from './components/cart/cart.component';
+import { ChoiceMenuComponent } from './components/choice-menu/choice-menu.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { CartComponent } from './components/cart/cart.component';
     MenuComponent,
     DetailMenuComponent,
     CartComponent,
+    ChoiceMenuComponent,
   ],
   imports: [
     BrowserModule,

@@ -25,24 +25,7 @@ export class MenuComponent implements OnInit {
     public route : Router,
     private cartService : CartService) {}
 
-  ngOnInit() {
-
-    if(JSON.stringify(this.menu)=='{}'){
-        this.menuSVC.getMenu()
-        .subscribe({
-         next: (data: any) => {
-          localStorage.setItem('menu',JSON.stringify(data.results))
-          this.menu = JSON.parse(localStorage.getItem('menu')!)
-            console.log(data);
-          },
-        error: (error: HttpErrorResponse) => {
-          console.log(error);
-        },
-      })
-    }
-
-    this.menu = JSON.parse(localStorage.getItem('menu')!)
-  }
+  ngOnInit() {}
 
 
 

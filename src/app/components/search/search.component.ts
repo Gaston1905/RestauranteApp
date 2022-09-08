@@ -41,7 +41,9 @@ export class SearchComponent implements OnInit {
     if(menu.length > 2){
     this.menuSVC.getItemsByType(menu).subscribe(
       (data => this.menu = data.results)
-    )}
+    )
+    this.menuSVC.getItemDetail
+  }
   }
 
   onItemDetail(id: number){
