@@ -1,6 +1,6 @@
 import { MenuService } from 'src/app/services/menu.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { faLeftLong } from '@fortawesome/free-solid-svg-icons'
 

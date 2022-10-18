@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { MenuService } from 'src/app/services/menu.service';
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { debounceTime, distinctUntilChanged, fromEvent, map, switchMap, UnsubscriptionError } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { debounceTime, fromEvent, map } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
 
 

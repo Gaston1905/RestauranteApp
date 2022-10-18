@@ -12,7 +12,7 @@ import { faLeftLong } from '@fortawesome/free-solid-svg-icons'
 export class ChoiceMenuComponent implements OnInit {
 
   faLeftLong = faLeftLong;
-  id? : number;
+ 
 
   constructor(
     private route: Router,
@@ -26,7 +26,7 @@ export class ChoiceMenuComponent implements OnInit {
 
   menu = this.cartService.getItems();
 
-  detail = this.menuSVC.getItemDetail(this.id!)
+  
 
   onItemDetail(id: number){
     this.menuSVC.getItemDetail(id).subscribe(
