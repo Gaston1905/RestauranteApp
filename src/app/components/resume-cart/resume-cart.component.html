@@ -1,0 +1,43 @@
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">Mi menu</h5>
+
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+
+    <a href="/detail">
+      <div class="card mb-3" *ngFor="let food of menu">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{food.image}}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{food.title}}</h5>
+              <p class="card-text"></p>
+              <p class="card-text"><small class="text-muted">5 Minutos</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <hr>
+
+    <div class="flex d-flex justify-content-around" *ngFor="let food of menu">
+      <p>{{food.healthScore}} Health Score</p>
+      <p>{{food.readyInMinutes}} Minutos</p>
+      <p>$ {{food.pricePerServing}} /Unidad</p>
+
+    </div>
+
+    <hr>
+
+    <div class="flex d-flex justify-content-end">
+      <button class="btn btn-sm btn-primary">Seguir Comprando</button>
+      <button class="btn btn-sm btn-success">Finalizar Compra</button>
+    </div>
+
+  </div>
+</div>

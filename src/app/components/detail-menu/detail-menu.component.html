@@ -1,0 +1,52 @@
+<div class="container my-5">
+  <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border" id="background">
+
+    <div>
+      <a href="home"><button class="rounded-3 shadow-lg border"></button></a>
+    </div>
+
+    <div class="col-lg-7 p-3 ms-4 bg-light rounded">
+      <h1 class="display-5 fw-bold lh-1">{{menu.title}}</h1>
+      <div innerHTML="{{menu.summary}}"></div>
+    </div>
+    <div class="col-lg-4 p-0 ms-3" id="image">
+        <img class="rounded border border-3 img-thumbnail" src={{menu.image}} >
+    </div>
+    <span>
+      <br>
+    </span>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3 text-black">
+            <h4 class="my-0 fw-normal">Healt Score</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">{{menu.healthScore}}<small class="text-muted fw-light"> puntos</small></h1>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Tiempo de preparacion</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">{{menu.readyInMinutes}}<small class="text-muted fw-light"> minutes</small></h1>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3 text-black ">
+            <h4 class="my-0 fw-normal">Precio</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">${{menu.pricePerServing}}<small class="text-muted fw-light">/Unit</small></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,13 @@
+#loginContainer {
+  box-shadow: 0 8px 15px 4px rgba(95, 95, 95, 0.6);
+}
+
+#background {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(25, 135, 84, 0.226),
+    rgba(255,255,255, .5)
+  ),
+  url(../../../assets/bg-home.webp);
+  box-shadow: 0 8px 15px 4px rgba(95, 95, 95, 0.6);
+}

@@ -1,0 +1,53 @@
+
+  <section class="rounded rounded-4 w-75 mx-auto my-5" style="background-color: #ffffff;" id="background">
+    <div class="container py-3 h-100 py-5">
+      <div class="row d-flex justify-content-center align-items-center h-100"  >
+        <div class="col col-xl-7" >
+          <div class="card" style="border-radius: 1rem;" id="loginContainer">
+            <div class="row g-0 ">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="../../../assets/pexels-guilherme-rossi-1819669.jpg"
+                  alt="login form" class="w-100 mt-5 pb-5" style="border-radius: 1rem 0 0 1rem;" />
+
+              </div>
+
+              <div class="col-md-6 col-lg-7 d-flex">
+                <div class="card-body text-black">
+
+                  <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+
+                    <div class="d-flex justify-content-end mt-5">
+                      <img src="../../../assets/logo.png" alt="" class="w-50">
+                    </div>
+
+                    <h5 class="fw-normal mb-2 pb-2 fs-6" style="letter-spacing: 1px;">Introduce tus datos</h5>
+
+                    <div class="form-outline mb-4">
+                      <input type="email" formControlName="email" placeholder="email@example.com" class="form-control" required/>
+                    </div>
+
+                    <div class="form-outline mb-2">
+                      <input type="password" formControlName="password" placeholder="password" class="form-control" required/>
+                    </div>
+
+                    <div class="pt-1 mb-2">
+                      <button type="submit" class="btn btn-success btn-sm btn-block ms-2">Login</button>
+                      <a href="#!" class="small text-muted ms-4">Terms of use.</a>
+                      <a href="#!" class="small text-muted">Privacy policy</a>
+                    </div>
+
+                    <a class="small text-muted" href="#!">No recuerdo mi contraseña</a>
+                    <p class="mb-3 pb-lg-2" style="color: #393f81;">¿No tienes una cuenta? <a href="/register"
+                        style="color: #393f81;">Registrate aquí</a></p>
+
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
