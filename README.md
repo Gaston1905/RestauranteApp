@@ -1,27 +1,64 @@
-# RestauranAppWeb
+<h1 align="center">A La Carta</h1>
+<br>
+<p align ="center">
+  <img src="src/assets/logo.png" alt="a-la-carta-logo" width="320"/>
+  <br>
+Aplicación de una carta de opciones de menús para el restaurante “A
+la carta” que consumirá una API externa y mostrará diferentes atributos a nivel individual de
+cada plato y del menú finalizado. </p>
+<br>
+<hr>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+## Iniciando 🚀
 
-## Development server
+_Estas instrucciones le permitirán obtener una copia del proyecto en ejecución en su máquina local para fines de desarrollo y prueba._
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Consulte Implementación para obtener información sobre cómo implementar el proyecto.
 
-## Code scaffolding
+### Prerequisitos 📋
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+_¿Qué cosas necesitas para trabajar en este proyecto y cómo instalarlas?_
 
-## Build
+```
+- IDE development environment [example of: Visual Studio Code]
+- Install [Node.js] which includes [Node Package Manager][npm]
+- Angular CLI
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Configuración del proyecto 🔧
 
-## Running unit tests
+Paso a paso que debes ejecutar para tener un entorno de desarrollo funcionando
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+Descargar e instalar Node.js en [https://nodejs.org/en/download/)]
+```
+```
+Descargar e instalar IDE Visual Studio Code [https://code.visualstudio.com/]
+```
+```
+Instalar Angular CLI [npm install] en su terminal 
+```
 
-## Running end-to-end tests
+_Clonando el repositorio_
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
+git clone https://github.com/Gaston1905/RestauranteApp.git
+gh repo clone Gaston1905/RestauranteApp
+```
 
-## Further help
+## Deployment 📦
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+ng build
+```
+
+## Construido con... 🛠️
+
+_Herramientas utilizadas para crear el proyecto_
+
+* [Angular](https://angular.io/) - Frameworks web development
+* [Bootstrap 5.2](https://getbootstrap.com/) - Frameworks css
+
+## Author ✒️
+
+* **Gaitan Gaston** - *Work Start* - [gaston1905](https://github.com/Gaston1905)
