@@ -13,7 +13,6 @@ import { ResumeCartComponent } from './resume-cart/resume-cart.component';
     SearchComponent,
     DetailMenuComponent,
     ResumeCartComponent,
-    ResumeCartComponent
   ],
   imports: [
     CommonModule

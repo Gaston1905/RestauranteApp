@@ -16,7 +16,7 @@
             <div class="card-body">
               <h5 class="card-title">{{food.title}}</h5>
               <p class="card-text"></p>
-              <p class="card-text"><small class="text-muted">5 Minutos</small></p>
+              <p class="card-text"><small class="text-muted">{{food.readyInMinutes}}</small></p>
             </div>
           </div>
         </div>
@@ -25,10 +25,10 @@
 
     <hr>
 
-    <div class="flex d-flex justify-content-around" *ngFor="let food of menu">
-      <p>{{food.healthScore}} Health Score</p>
-      <p>{{food.readyInMinutes}} Minutos</p>
-      <p>$ {{food.pricePerServing}} /Unidad</p>
+    <div class="flex d-flex justify-content-around">
+      <p>{{ cartSVC.healthScore | number }} Health Score</p>
+      <p>{{ cartSVC.readyInMinutes | number }} Minutos</p>
+      <p>{{ cartSVC.pricePerServing | currency }} /Unidad</p>
 
     </div>
 

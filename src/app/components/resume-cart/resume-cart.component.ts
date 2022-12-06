@@ -9,13 +9,10 @@ import { CartService } from '../../services/cart/cart.service';
 })
 export class ResumeCartComponent implements OnInit {
 
-  constructor( private cartSVC: CartService ) { }
+  constructor( public cartSVC: CartService ) { }
 
   ngOnInit(): void { }
 
   menu = this.cartSVC.getItems();
-
-
-
 
 }
