@@ -30,8 +30,6 @@ export class SearchComponent implements OnInit {
       ).subscribe(
         e => this.onSearch(e))
     }
-
-
   }
 
   onSearch(menu: string){
