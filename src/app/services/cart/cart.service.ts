@@ -9,9 +9,8 @@ import { MenuService } from 'src/app/services/menu.service/menu.service';
 })
 export class CartService {
 
-  menuChoice = JSON.parse(localStorage.getItem('menuChoice') || '{}')
-
   items: Array<any> = [];
+  total!: Menu;
   id?: number;
 
   readyInMinutes: number = 0;
@@ -23,31 +22,38 @@ export class CartService {
   addToCart(id: number) {
     this.menuSVC.getItemDetail(id).subscribe(
       (data: any) =>{
-        localStorage.setItem('menuChoice', JSON.stringify(this.items));
-        return data
+        const { id, title, image, healthScore, readyInMinutes, pricePerServing } = data
+        this.total = {id, title, image, healthScore, readyInMinutes, pricePerServing }
+        this.items.push(this.total)
+        return this.items
       }
       ),
+      this.getMenu()
       this.getItems();
+      console.log(this.getItems());
     }
 
     getItems() {
-      // this.getMenu()
       // this.getHealthScore()
       // this.getPricePerServing()
     return this.items;
   }
 
-  // getMenu() {
 
-  //   this.readyInMinutes = 0;
+  getMenu() {
 
-  //   let amount = this.menuChoice.length;
+    this.readyInMinutes = 0;
 
-  //   this.readyInMinutes += this.menuChoice.readyInMinutes / amount;
+    let amount = this.items.length + 1;
+    console.log(amount)
 
-  //   console.log(this.readyInMinutes)
+    let averageMinutes: any = this.items.filter((readyInMinutes) => { readyInMinutes});
 
-  // }
+    this.readyInMinutes += averageMinutes.readyInMinutes / amount;
+
+    console.log(this.readyInMinutes)
+
+  }
 
   // getHealthScore() {
 

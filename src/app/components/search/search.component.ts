@@ -1,3 +1,4 @@
+import { Menu } from 'src/app/model/menu.interface';
 import { WarehouseService } from './../../services/warehouse.service';
 import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
@@ -25,9 +26,9 @@ export class SearchComponent implements OnInit {
     timerProgressBar: true
   })
 
-  @Input() plato: any;
+  @Input() total: Menu[] = [];
 
-  menu: any[] = [];
+  menu: Menu[] = [];
   defaultImage: string = "https://spoonacular.com/menuItemImages/pilaf.png";
 
   constructor(
@@ -73,8 +74,8 @@ export class SearchComponent implements OnInit {
     this.cartSVC.addToCart(id)
   }
 
-  agregarPlato(plato: any) {
-    this.wh.addPlato(plato);
+  agregarPlato(total: any) {
+    this.wh.addPlato(total);
 
 
       this.Toast.fire({
