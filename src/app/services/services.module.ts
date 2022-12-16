@@ -10,7 +10,8 @@ import { CartService } from './cart/cart.service';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     HttpClientModule,

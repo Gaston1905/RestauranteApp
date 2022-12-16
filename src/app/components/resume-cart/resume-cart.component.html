@@ -26,9 +26,9 @@
     <hr>
 
     <div class="flex d-flex justify-content-around">
-      <p> {{ time }} Health Score</p>
-      <p> Minutos</p>
-      <p> /Unidad</p>
+      <p> {{wh.promedioHealthScore | number}} Health Score</p>
+      <p> {{wh.promedioPreparacion | number}} Minutos</p>
+      <p> {{wh.precioTotal | currency}}/Unidad</p>
 
     </div>
 

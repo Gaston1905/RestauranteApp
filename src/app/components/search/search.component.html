@@ -30,10 +30,13 @@
                           data-bs-target="#offcanvasRight"
                           aria-controls="offcanvasRight"
                           (click)="addMenu(menu.id)"
+                          (click)="agregarPlato(menu)"
                           >Add to Menu
                   </button>
                 </div>
                 <small class="text-muted">{{menu.readyInMinutes}}</small>
+                <small class="text-muted">{{menu.pricePerServing}}</small>
+                <small class="text-muted">{{menu.healthScore}}</small>
               </div>
             </div>
         </div>
