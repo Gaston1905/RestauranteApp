@@ -23,10 +23,10 @@
       </div>
     </a>
 
-    <div class="flex d-flex justify-content-around" *ngFor="let food of menu ">
-      <p> {{food.healthScore}} Health Score</p>
-      <p> {{food.promedioPreparacion}} Minutos</p>
-      <p> {{food.precioTotal}}/Unidad</p>
+    <div class="flex d-flex justify-content-around" >
+      <p> {{ cartSVC.averageHealthScore | number}} Health Score</p>
+      <p>  Minutos</p>
+      <p> {{ cartSVC.averagePricePerServing | currency }}/Unidad</p>
 
     </div>
     <hr>

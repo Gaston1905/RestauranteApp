@@ -1,21 +1,18 @@
-import { Menu } from 'src/app/model/menu.interface';
-import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
-
 import { MenuService } from 'src/app/services/menu.service/menu.service';
+import { Menu } from 'src/app/model/menu.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  items: Array<any> = [];
+  items: Menu[] = [];
   total!: Menu;
   id?: number;
 
-  readyInMinutes: number = 0;
-  healthScore: number = 0;
-  pricePerServing: number = 0;
+  averageHealthScore: number = this.getHealthScore();
+  averagePricePerServing: number = 0;
 
   constructor( private menuSVC: MenuService ) { }
 
@@ -28,53 +25,43 @@ export class CartService {
         return this.items
       }
       ),
-      this.getMenu()
       this.getItems();
-      console.log(this.getItems());
     }
 
     getItems() {
-      // this.getHealthScore()
-      // this.getPricePerServing()
-    return this.items;
+      this.getPricePerServing();
+      this.getHealthScore();
+      return this.items;
+    }
+
+    getAverageMinutes(): number {
+
+    let readyInMinutes: number = 0;
+
+    this.items.forEach((menu: any) => {
+      readyInMinutes += menu.readyInMinutes;
+    })
+
+    console.log(readyInMinutes)
+    return readyInMinutes
   }
 
+  getHealthScore(): number {
 
-  getMenu() {
+    this.averageHealthScore = 0;
 
-    this.readyInMinutes = 0;
+    this.averageHealthScore += this.items.map((menu) => {return menu.healthScore}).reduce((a, v) => a + v, 0)
 
-    let amount = this.items.length + 1;
-    console.log(amount)
-
-    let averageMinutes: any = this.items.filter((readyInMinutes) => { readyInMinutes});
-
-    this.readyInMinutes += averageMinutes.readyInMinutes / amount;
-
-    console.log(this.readyInMinutes)
-
+    console.log(this.averageHealthScore)
+    return this.averageHealthScore;
   }
 
-  // getHealthScore() {
+  getPricePerServing(): number {
 
-  //   this.healthScore = 0;
+    this.averagePricePerServing = this.items.map((menu) => {return menu.pricePerServing}).reduce((a, v) => a + v, 0);
 
-  //   let amount = this.menuChoice.length;
-
-  //   this.healthScore += this.menuChoice.healthScore / amount;
-
-  //   console.log(this.healthScore)
-  // }
-
-  // getPricePerServing() {
-
-  //   this.pricePerServing = 0;
-
-  //   let amount = this.menuChoice.length;
-
-  //   this.pricePerServing += this.menuChoice.pricePerServing / amount;
-
-  //   console.log(this.pricePerServing)
-  // }
+    console.log(this.averagePricePerServing)
+    return this.averagePricePerServing;
+  }
 
 }
