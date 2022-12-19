@@ -7,26 +7,27 @@ import { Menu } from 'src/app/model/menu.interface';
 })
 export class CartService {
 
+  averageHealthScore: number = 0;
+  averagePricePerServing: number = 0;
+
   items: Menu[] = [];
   total!: Menu;
   id?: number;
 
-  averageHealthScore: number = this.getHealthScore();
-  averagePricePerServing: number = 0;
 
   constructor( private menuSVC: MenuService ) { }
 
   addToCart(id: number) {
     this.menuSVC.getItemDetail(id).subscribe(
       (data: any) =>{
-        const { id, title, image, healthScore, readyInMinutes, pricePerServing } = data
+        let { id, title, image, healthScore, readyInMinutes, pricePerServing } = data
         this.total = {id, title, image, healthScore, readyInMinutes, pricePerServing }
         this.items.push(this.total)
         return this.items
-      }
-      ),
-      this.getItems();
-    }
+      },
+    ),
+    this.getItems();
+  }
 
     getItems() {
       this.getPricePerServing();
@@ -48,17 +49,18 @@ export class CartService {
 
   getHealthScore(): number {
 
-    this.averageHealthScore = 0;
+    console.log(this.items)
 
-    this.averageHealthScore += this.items.map((menu) => {return menu.healthScore}).reduce((a, v) => a + v, 0)
+    this.averageHealthScore = Number(this.items.find(menu => menu.healthScore));
 
-    console.log(this.averageHealthScore)
+    this.averageHealthScore += this.items.map((menu) => menu.healthScore).reduce((a, v) => a + v, 0);
+
     return this.averageHealthScore;
   }
 
   getPricePerServing(): number {
 
-    this.averagePricePerServing = this.items.map((menu) => {return menu.pricePerServing}).reduce((a, v) => a + v, 0);
+    this.averagePricePerServing = this.items.map((menu) => menu.pricePerServing).reduce((a, v) => a + v, 0);
 
     console.log(this.averagePricePerServing)
     return this.averagePricePerServing;
