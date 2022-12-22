@@ -1,5 +1,4 @@
 import { Menu } from 'src/app/model/menu.interface';
-import { WarehouseService } from './../../services/warehouse.service';
 import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { debounceTime, fromEvent, map } from 'rxjs';
@@ -34,8 +33,7 @@ export class SearchComponent implements OnInit {
   constructor(
     public menuSVC: MenuService,
     public cartSVC: CartService,
-    public route: Router,
-    private wh: WarehouseService
+    public route: Router
   ) { }
 
   ngOnInit(): void {
@@ -73,15 +71,5 @@ export class SearchComponent implements OnInit {
   addMenu(id: number) {
     this.cartSVC.addToCart(id)
   }
-
-  agregarPlato(total: any) {
-    this.wh.addPlato(total);
-
-
-      this.Toast.fire({
-        icon: 'success',
-        title: 'Se agrego el plato correctamente'
-      })
-    }
 
 }

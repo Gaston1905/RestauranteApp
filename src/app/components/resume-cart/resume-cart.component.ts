@@ -1,9 +1,8 @@
-import { Menu } from 'src/app/model/menu.interface';
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 import { CartService } from '../../services/cart/cart.service';
-import { WarehouseService } from 'src/app/services/warehouse.service';
+import { Menu } from 'src/app/model/menu.interface';
+
 
 @Component({
   selector: 'app-resume-cart',
@@ -12,11 +11,17 @@ import { WarehouseService } from 'src/app/services/warehouse.service';
 })
 export class ResumeCartComponent implements OnInit {
 
+  menu: Menu[];
 
-  constructor( public cartSVC: CartService ) { }
+  constructor( public cartSVC: CartService ) {
+    this.menu = [...this.cartSVC.items];
+    this.cartSVC.itemsChanged.subscribe((items: Menu[]) => {
+      console.log(items)
+      this.menu = [...items];
+    });
+  }
 
   ngOnInit(): void { }
 
-  menu = this.cartSVC.getItems();
 
 }
